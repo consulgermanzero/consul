@@ -35,7 +35,7 @@
                                 legislation_processes_path,
                                 controller.class.parent == Legislation,
                                 accesskey: "4" %>
-      </li>
+      </li>-->
     <% end %>
     <% if feature?(:budgets) %>
       <!--<li>
@@ -53,7 +53,7 @@
                                 current_page?(help_path),
                                 accesskey: "6",
                                 title: t("shared.go_to_page") + t("layouts.header.help") %>
-      </li>-->
+      </li>
     <% end %>
 
     <%= raw content_block("subnavigation_right", I18n.locale) %>
