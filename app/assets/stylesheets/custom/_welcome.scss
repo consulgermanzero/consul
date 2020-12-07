@@ -48,51 +48,54 @@
           min-height: 1080px;
           } 
 
-        h1 {
-          color: #fff
+        span {
+          color: #fff;
+          font-size: 3rem;
         }
 
-        span {
-          color: #fff
+        h1 {
+          color: #fff;
+          font-size: 2rem;
         }
+ 
+        .lead {
+            color: $white;
+            font-size: rem-calc(10);
+            font-weight: 700;
+            line-height: rem-calc(10);
 
         .small-12.medium-6.column.medium-9.small {
             margin-top: rem-calc(0);
     
     
             @include breakpoint(medium) {
-                margin-top: rem-calc(20);
+                margin-top: rem-calc(10);
             }
     
             @include breakpoint(large) {
-                margin-top: rem-calc(30);
+                margin-top: rem-calc(20);
             }
     
             @include breakpoint(xxlarge) {
-                margin-top: rem-calc(120);
+                margin-top: rem-calc(30);
                 background-size: 1000% auto;
             }
         }
-    
-        .lead {
-        color: $white;
-        font-size: rem-calc(30);
-        font-weight: 700;
-        line-height: rem-calc(30);
+
     
         @include breakpoint(medium) {
-            font-size: rem-calc(40);
-            line-height: rem-calc(40);
+            font-size: rem-calc(10);
+            line-height: rem-calc(20);
         }
         
         @include breakpoint(large) {
-            font-size: rem-calc(50);
-            line-height: rem-calc(50);
+            font-size: rem-calc(20);
+            line-height: rem-calc(20);
         }
             
         @include breakpoint(xxlarge) {
-            font-size: rem-calc(60);
-            line-height: rem-calc(60);
+            font-size: rem-calc(20);
+            line-height: rem-calc(20);
         }
         }
     
