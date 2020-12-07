@@ -6,7 +6,7 @@ For licensing, see LICENSE.html or http://ckeditor.com/license
 
 CKEDITOR.editorConfig = function( config )
 {
-  config.extraPlugins = 'pre, dialog, widget, panel, listblock, youtube, powrfaq';
+  config.extraPlugins = 'pre, dialog, widget';
   config.forcePasteAsPlainText = true;
 
   config.filebrowserBrowseUrl = "/ckeditor/attachment_files";
@@ -104,7 +104,7 @@ CKEDITOR.editorConfig = function( config )
 
   config.toolbar_admin = config.toolbar_mini.concat([
     { name: "insert", items: [ "Image", "Table" ] },
-    { name: "addins", items: [ "Anchor", "Youtube", "pre", "faq" ] }
+    { name: "addins", items: [ "Anchor", "Youtube", "pre" ] }
   ]);
 
   config.toolbar = "mini";
