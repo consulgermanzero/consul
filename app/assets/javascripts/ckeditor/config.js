@@ -6,7 +6,7 @@ For licensing, see LICENSE.html or http://ckeditor.com/license
 
 CKEDITOR.editorConfig = function( config )
 {
-  config.extraPlugins = 'pre, dialog, widget';
+  config.extraPlugins = 'pre, dialog, widget, lineutils, mjAccordion';
   config.forcePasteAsPlainText = true;
 
   config.filebrowserBrowseUrl = "/ckeditor/attachment_files";
@@ -17,6 +17,11 @@ CKEDITOR.editorConfig = function( config )
   config.filebrowserImageUploadUrl = "/ckeditor/pictures";
   config.filebrowserUploadUrl = "/ckeditor/attachment_files";
   config.filebrowserUploadMethod = "form";
+
+  config.contentsCss = asset_path('custom/accordion.css');
+  config.mjAccordion_managePopupTitle = true;
+  config.mjAccordion_managePopupContent = true;
+  config.mj_variables_allow_html = false;
 
   config.allowedContent = true;
   config.format_tags = "p;h2;h3";
@@ -103,7 +108,7 @@ CKEDITOR.editorConfig = function( config )
   ];
 
   config.toolbar_admin = config.toolbar_mini.concat([
-    { name: "insert", items: [ "Image", "Table" ] },
+    { name: "insert", items: [ "Image", "Table", "MJAccordion", "Source" ] },
     { name: "addins", items: [ "Anchor", "Youtube", "pre" ] }
   ]);
 

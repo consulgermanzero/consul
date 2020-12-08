@@ -1,14 +1,13 @@
-de:
+en:
   debates:
     new:
       start_new_in: Start a debate in %{category}
   proposals:
     new:
       start_new_in: Create new proposal in %{category}
-    proposal:
-      reason_for_supports_necessary: ""
   shared:
     tags_cloud:
       subcategories: "Subcategories"
   alerts:
     select_one_category: "Please select one category to create a %{model}"
+

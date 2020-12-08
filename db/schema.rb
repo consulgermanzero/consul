@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20191108173350) do
+ActiveRecord::Schema.define(version: 20201206220940) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -214,6 +214,7 @@ ActiveRecord::Schema.define(version: 20191108173350) do
     t.boolean  "allow_custom_content", default: false
     t.text     "latitude"
     t.text     "longitude"
+    t.integer  "max_ballot_lines",     default: 1
     t.datetime "created_at"
     t.datetime "updated_at"
     t.index ["group_id"], name: "index_budget_headings_on_group_id", using: :btree
@@ -235,8 +236,6 @@ ActiveRecord::Schema.define(version: 20191108173350) do
   create_table "budget_investments", force: :cascade do |t|
     t.integer  "author_id"
     t.integer  "administrator_id"
-    t.string   "deprecated_title"
-    t.text     "deprecated_description"
     t.string   "external_url"
     t.bigint   "price"
     t.string   "feasibility",                      limit: 15, default: "undecided"
@@ -360,6 +359,7 @@ ActiveRecord::Schema.define(version: 20191108173350) do
     t.text     "description_drafting"
     t.text     "description_publishing_prices"
     t.text     "description_informing"
+    t.string   "voting_style",                             default: "knapsack"
   end
 
   create_table "campaigns", force: :cascade do |t|
@@ -397,7 +397,6 @@ ActiveRecord::Schema.define(version: 20191108173350) do
   create_table "comments", force: :cascade do |t|
     t.integer  "commentable_id"
     t.string   "commentable_type"
-    t.text     "deprecated_body"
     t.string   "subject"
     t.integer  "user_id",                            null: false
     t.datetime "created_at"
@@ -481,24 +480,22 @@ ActiveRecord::Schema.define(version: 20191108173350) do
   end
 
   create_table "debates", force: :cascade do |t|
-    t.string   "deprecated_title",             limit: 80
-    t.text     "deprecated_description"
     t.integer  "author_id"
-    t.datetime "created_at",                                          null: false
-    t.datetime "updated_at",                                          null: false
+    t.datetime "created_at",                               null: false
+    t.datetime "updated_at",                               null: false
     t.string   "visit_id"
     t.datetime "hidden_at"
-    t.integer  "flags_count",                             default: 0
+    t.integer  "flags_count",                  default: 0
     t.datetime "ignored_flag_at"
-    t.integer  "cached_votes_total",                      default: 0
-    t.integer  "cached_votes_up",                         default: 0
-    t.integer  "cached_votes_down",                       default: 0
-    t.integer  "comments_count",                          default: 0
+    t.integer  "cached_votes_total",           default: 0
+    t.integer  "cached_votes_up",              default: 0
+    t.integer  "cached_votes_down",            default: 0
+    t.integer  "comments_count",               default: 0
     t.datetime "confirmed_hide_at"
-    t.integer  "cached_anonymous_votes_total",            default: 0
-    t.integer  "cached_votes_score",                      default: 0
-    t.bigint   "hot_score",                               default: 0
-    t.integer  "confidence_score",                        default: 0
+    t.integer  "cached_anonymous_votes_total", default: 0
+    t.integer  "cached_votes_score",           default: 0
+    t.bigint   "hot_score",                    default: 0
+    t.integer  "confidence_score",             default: 0
     t.integer  "geozone_id"
     t.tsvector "tsv"
     t.datetime "featured_at"
@@ -543,7 +540,7 @@ ActiveRecord::Schema.define(version: 20191108173350) do
     t.string   "title"
     t.string   "attachment_file_name"
     t.string   "attachment_content_type"
-    t.integer  "attachment_file_size"
+    t.bigint   "attachment_file_size"
     t.datetime "attachment_updated_at"
     t.integer  "user_id"
     t.string   "documentable_type"
@@ -639,7 +636,7 @@ ActiveRecord::Schema.define(version: 20191108173350) do
     t.datetime "updated_at",                         null: false
     t.string   "attachment_file_name"
     t.string   "attachment_content_type"
-    t.integer  "attachment_file_size"
+    t.bigint   "attachment_file_size"
     t.datetime "attachment_updated_at"
     t.integer  "user_id"
     t.index ["imageable_type", "imageable_id"], name: "index_images_on_imageable_type_and_imageable_id", using: :btree
@@ -1222,30 +1219,26 @@ ActiveRecord::Schema.define(version: 20191108173350) do
   end
 
   create_table "proposals", force: :cascade do |t|
-    t.string   "deprecated_title",               limit: 80
-    t.text     "deprecated_description"
     t.integer  "author_id"
     t.datetime "hidden_at"
-    t.integer  "flags_count",                               default: 0
+    t.integer  "flags_count",                  default: 0
     t.datetime "ignored_flag_at"
-    t.integer  "cached_votes_up",                           default: 0
-    t.integer  "comments_count",                            default: 0
+    t.integer  "cached_votes_up",              default: 0
+    t.integer  "comments_count",               default: 0
     t.datetime "confirmed_hide_at"
-    t.bigint   "hot_score",                                 default: 0
-    t.integer  "confidence_score",                          default: 0
-    t.datetime "created_at",                                                null: false
-    t.datetime "updated_at",                                                null: false
-    t.string   "responsible_name",               limit: 60
-    t.text     "deprecated_summary"
+    t.bigint   "hot_score",                    default: 0
+    t.integer  "confidence_score",             default: 0
+    t.datetime "created_at",                                   null: false
+    t.datetime "updated_at",                                   null: false
+    t.string   "responsible_name",  limit: 60
     t.string   "video_url"
     t.tsvector "tsv"
     t.integer  "geozone_id"
     t.datetime "retired_at"
     t.string   "retired_reason"
-    t.text     "deprecated_retired_explanation"
     t.integer  "community_id"
     t.datetime "published_at"
-    t.boolean  "selected",                                  default: false
+    t.boolean  "selected",                     default: false
     t.index ["author_id", "hidden_at"], name: "index_proposals_on_author_id_and_hidden_at", using: :btree
     t.index ["author_id"], name: "index_proposals_on_author_id", using: :btree
     t.index ["cached_votes_up"], name: "index_proposals_on_cached_votes_up", using: :btree
@@ -1318,6 +1311,7 @@ ActiveRecord::Schema.define(version: 20191108173350) do
     t.integer  "author_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.string   "title"
   end
 
   create_table "signatures", force: :cascade do |t|
@@ -1344,7 +1338,7 @@ ActiveRecord::Schema.define(version: 20191108173350) do
     t.string   "name",               null: false
     t.string   "image_file_name"
     t.string   "image_content_type"
-    t.integer  "image_file_size"
+    t.bigint   "image_file_size"
     t.datetime "image_updated_at"
     t.datetime "created_at",         null: false
     t.datetime "updated_at",         null: false
@@ -1389,8 +1383,15 @@ ActiveRecord::Schema.define(version: 20191108173350) do
     t.integer  "tagger_id"
     t.string   "context",       limit: 128
     t.datetime "created_at"
+    t.index ["context"], name: "index_taggings_on_context", using: :btree
+    t.index ["tag_id", "taggable_id", "taggable_type", "context", "tagger_id", "tagger_type"], name: "taggings_idx", unique: true, using: :btree
     t.index ["tag_id"], name: "index_taggings_on_tag_id", using: :btree
     t.index ["taggable_id", "taggable_type", "context"], name: "index_taggings_on_taggable_id_and_taggable_type_and_context", using: :btree
+    t.index ["taggable_id", "taggable_type", "tagger_id", "context"], name: "taggings_idy", using: :btree
+    t.index ["taggable_id"], name: "index_taggings_on_taggable_id", using: :btree
+    t.index ["taggable_type"], name: "index_taggings_on_taggable_type", using: :btree
+    t.index ["tagger_id", "tagger_type"], name: "index_taggings_on_tagger_id_and_tagger_type", using: :btree
+    t.index ["tagger_id"], name: "index_taggings_on_tagger_id", using: :btree
   end
 
   create_table "tags", force: :cascade do |t|
@@ -1399,12 +1400,13 @@ ActiveRecord::Schema.define(version: 20191108173350) do
     t.integer "debates_count",                           default: 0
     t.integer "proposals_count",                         default: 0
     t.string  "kind"
-    t.integer "budget/investments_count",                default: 0
-    t.integer "legislation/proposals_count",             default: 0
-    t.integer "legislation/processes_count",             default: 0
+    t.integer "budget_investments_count",                default: 0
+    t.integer "legislation_proposals_count",             default: 0
+    t.integer "legislation_processes_count",             default: 0
+    t.integer "polls_count",                             default: 0
     t.index ["debates_count"], name: "index_tags_on_debates_count", using: :btree
-    t.index ["legislation/processes_count"], name: "index_tags_on_legislation/processes_count", using: :btree
-    t.index ["legislation/proposals_count"], name: "index_tags_on_legislation/proposals_count", using: :btree
+    t.index ["legislation_processes_count"], name: "index_tags_on_legislation_processes_count", using: :btree
+    t.index ["legislation_proposals_count"], name: "index_tags_on_legislation_proposals_count", using: :btree
     t.index ["name"], name: "index_tags_on_name", unique: true, using: :btree
     t.index ["proposals_count"], name: "index_tags_on_proposals_count", using: :btree
   end
