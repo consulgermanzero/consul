@@ -3,28 +3,22 @@ Copyright (c) 2003-2011, CKSource - Frederico Knabben. All rights reserved.
 For licensing, see LICENSE.html or http://ckeditor.com/license
 */
 
-
 CKEDITOR.editorConfig = function( config )
 {
-  config.extraPlugins = 'pre, dialog, widget, lineutils, mjAccordion';
-  config.forcePasteAsPlainText = true;
-
-  config.filebrowserBrowseUrl = "/ckeditor/attachment_files";
-  config.filebrowserFlashBrowseUrl = "/ckeditor/attachment_files";
-  config.filebrowserFlashUploadUrl = "/ckeditor/attachment_files";
+  config.extraPlugins = 'widget,lineutils,mjAccordion';
   config.filebrowserImageBrowseLinkUrl = "/ckeditor/pictures";
   config.filebrowserImageBrowseUrl = "/ckeditor/pictures";
-  config.filebrowserImageUploadUrl = "/ckeditor/pictures";
-  config.filebrowserUploadUrl = "/ckeditor/attachment_files";
+  config.filebrowserImageUploadUrl = "/ckeditor/pictures?";
   config.filebrowserUploadMethod = "form";
-
-  config.contentsCss = asset_path('custom/accordion.css');
-  config.mjAccordion_managePopupTitle = true;
-  config.mjAccordion_managePopupContent = true;
-  config.mj_variables_allow_html = false;
 
   config.allowedContent = true;
   config.format_tags = "p;h2;h3";
+
+  config.removePlugins = "balloonpanel,balloontoolbar,copyformatting,scayt,wsc";
+
+  config.mjAccordion_managePopupTitle = true;
+  config.mjAccordion_managePopupContent = true;
+  config.mj_variables_allow_html = false;
 
   // Rails CSRF token
   config.filebrowserParams = function(){
@@ -91,7 +85,7 @@ CKEDITOR.editorConfig = function( config )
     { name: "clipboard", groups: [ "clipboard", "undo" ], items: [ "Cut", "Copy", "Paste", "PasteText", "PasteFromWord", "-", "Undo", "Redo" ] },
     // { name: "editing", groups: [ "find", "selection", "spellchecker" ], items: [ "Find", "Replace", "-", "SelectAll", "-", "Scayt" ] },
     // { name: "forms", items: [ "Form", "Checkbox", "Radio", "TextField", "Textarea", "Select", "Button", "ImageButton", "HiddenField" ] },
-    { name: "links", items: [ "Link", "Unlink" ] },
+    { name: "links", items: [ "Link", "Unlink", "Anchor" ] },
     { name: "insert", items: [ "Image", "Flash", "Table", "HorizontalRule", "SpecialChar" ] },
     { name: "paragraph", groups: [ "list", "indent", "blocks", "align", "bidi" ], items: [ "NumberedList", "BulletedList", "-", "Outdent", "Indent", "-", "Blockquote", "CreateDiv", "-", "JustifyLeft", "JustifyCenter", "JustifyRight", "JustifyBlock" ] },
     "/",
@@ -108,8 +102,8 @@ CKEDITOR.editorConfig = function( config )
   ];
 
   config.toolbar_admin = config.toolbar_mini.concat([
-    { name: "insert", items: [ "Image", "Table", "MJAccordion", "Source" ] },
-    { name: "addins", items: [ "Anchor", "Youtube", "pre" ] }
+    { name: "insert", items: [ "Image", "Table" ] },
+    { name: 'insert', items: [ 'MJAccordion', 'Source' ] }
   ]);
 
   config.toolbar = "mini";

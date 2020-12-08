@@ -43,6 +43,7 @@
 //= require foundation
 //= require turbolinks
 //= require ckeditor/loader
+//= require ckeditor/config.js
 //= require_directory ./ckeditor
 //= require social-share-button
 //= require initial
