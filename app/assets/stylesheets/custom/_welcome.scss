@@ -275,11 +275,26 @@
       }
   
       @media only screen and (min-width: 1900px) {
-        padding-top: 370px;
+        padding-top: 50px;
         background: image-url("welcome/head_large.png");
         background-size: 100% auto;;
         background-repeat: no-repeat;
         padding-bottom: rem-calc(80);
+  
+        span {
+          color: $white;
+          font-size: rem-calc(20);
+          font-weight: 300;
+          line-height: rem-calc(30);
+        }
+  
+        h1 {
+          color: $white;
+          margin-top: rem-calc(230);
+          font-size: rem-calc(40);
+          font-weight: 700;
+          line-height: rem-calc(40);
+        }
   
         .lead {
           color: $white;
@@ -290,7 +305,7 @@
   
         .button {
           background: $brand;
-          color: #fff;
+          color: black;
           max-width: 100%;
         }
       }
