@@ -44,6 +44,11 @@
           color: black;
           max-width: 100%;
         }
+
+        .headerinfo {
+          text-align: justify;
+          max-width: 100%;
+        }
       }
   
       @media only screen and (min-width: 414px) and (max-width: 550px) {
@@ -77,6 +82,11 @@
           color: black;
           max-width: 100%;
         }
+
+        .headerinfo {
+          text-align: justify;
+          max-width: 100%;
+        }
       }
   
       @media only screen and (min-width: 550px) and (max-width: 640px) {
@@ -106,6 +116,11 @@
           color: #fff;
           max-width: 100%;
         }
+
+        .headerinfo {
+          text-align: justify;
+          max-width: 100%;
+        }
       }
   
       @media only screen and (min-width: 640px) and (max-width: 768px) {
@@ -115,21 +130,28 @@
         background-repeat: no-repeat;
         padding-bottom: rem-calc(60);
   
-        span {
-          display: none;
-        }
-  
-        .lead {
-          color: $white;
+        h1 {
+          color: $black;
           font-size: rem-calc(30);
           font-weight: 700;
           line-height: rem-calc(30);
-          padding-bottom: 120px;
+        }
+
+        .lead {
+          color: $brand;
+          font-size: rem-calc(30);
+          font-weight: 700;
+          line-height: rem-calc(30);
         }
   
         .button {
           background: $brand;
           color: #fff;
+          max-width: 100%;
+        }
+
+        .headerinfo {
+          text-align: justify;
           max-width: 100%;
         }
       }
