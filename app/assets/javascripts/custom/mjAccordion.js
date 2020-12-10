@@ -12,7 +12,7 @@
 		//extends
 		var mjSettings = $.extend({
 			duration: 300,
-			toggle	: false
+			toggle	: true
 		}, options);
 
 		//function
