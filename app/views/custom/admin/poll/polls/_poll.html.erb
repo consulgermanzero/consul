@@ -10,12 +10,18 @@
     <%= l poll.ends_at.to_date %>
   </td>
   <td>
-    <%= render Admin::TableActionsComponent.new(poll,
-      destroy_confirmation: t("admin.polls.destroy.alert")
-    ) do |actions| %>
-      <%= actions.link_to t("admin.actions.configure"),
-                          admin_poll_path(poll),
-                          class: "configure-link" %>
-    <% end %>
-  </td>
+  <%= link_to t("admin.actions.edit"),
+              edit_admin_poll_path(poll),
+              class: "button hollow" %>
+
+  <%= link_to t("admin.actions.delete"),
+          admin_poll_path(poll),
+          method: :delete,
+          "data-confirm": t("admin.polls.destroy.alert"),
+          class: "button hollow alert" %>
+
+  <%= link_to t("admin.actions.configure"),
+              admin_poll_path(poll),
+              class: "button hollow " %>
+</td>
 </tr>

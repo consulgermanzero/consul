@@ -47,7 +47,7 @@
         <%=tag.kind%>
       </td>
       <td id="tag_<%= tag.id %>">
-        <%= render Admin::TableActionsComponent.new(tag, actions: [:destroy], destroy_text: t("admin.tags.destroy")) %>
+        <%= link_to t("admin.tags.destroy"), admin_tag_path(tag), method: :delete, class: "button hollow alert" %>
       </td>
     </tr>
   <% end %>

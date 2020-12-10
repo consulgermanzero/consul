@@ -1,4 +1,6 @@
 //= require custom/mjAccordion.js
-$(function() {
+
+
+$(document).on('turbolinks:load', function() {
   $('.mj_accordion').mjAccordion();
-})
+});
