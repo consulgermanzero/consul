@@ -1,9 +1,10 @@
 //= require custom/mjAccordion.js
+//= require turbolinks
 
-var ready;
-ready = function() {
+var mj;
+mj = function() {
 $(".mj_accordion").mjAccordion()
 };
 
-$(document).ready(ready);
-$(document).on('turbolinks:load', ready);
+$(document).ready(mj);
+$(document).on('turbolinks:load', mj);
