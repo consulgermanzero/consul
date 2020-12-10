@@ -176,12 +176,3 @@ $(function() {
   $(document).on("page:load", initialize_modules);
   $(document).on("ajax:complete", initialize_modules);
 });
-
-
-var ready;
-ready = function() {
-$(".mj_accordion").mjAccordion()
-};
-
-$(document).ready(ready);
-$(document).on('turbolinks:load', ready);
