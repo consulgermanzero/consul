@@ -18,10 +18,11 @@
         </div>
       <% end %>
 
-      <div id="section_help" class="margin" data-magellan-target="section_help">
-        <p><%= t("polls.index.section_footer.description") %></p>
-        <%= render_custom_partial "footer" %>
-      </div>
+      <% unless @search_terms || @advanced_search_terms || @tag_filter %>
+        <div id="section_help" class="margin" data-magellan-target="section_help">
+          <p><%= t("polls.index.section_footer.description") %></p>
+        </div>
+      <% end %>
   
       <%= render "shared/filter_subnav", i18n_namespace: "polls.index" %>
   

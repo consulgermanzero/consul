@@ -53,13 +53,11 @@
         
         <% unless @search_terms || @advanced_search_terms || @tag_filter %>
           <div id="section_help" class="margin" data-magellan-target="section_help">
-            <p class="lead">
-              <strong><%= t("proposals.index.section_footer.title") %></strong>
-            </p>
             <p><%= t("proposals.index.section_footer.description") %></p>
           </div>
         <% end %>
-  
+
+
         <% if show_featured_proposals? %>
           <div id="featured-proposals" class="row featured-proposals">
             <div class="small-12 column">
