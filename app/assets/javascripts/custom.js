@@ -4,5 +4,5 @@ $(function() {
 });
 
 $(document).on('turbolinks:load', function() {
-  // enter code here
+  $('.mj_accordion').mjAccordion();
 });
