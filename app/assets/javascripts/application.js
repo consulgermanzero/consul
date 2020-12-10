@@ -112,11 +112,6 @@
 //= require columns_selector
 //= require budget_edit_associations
 
-var mj;
-mj = function() {
-  $(".mj_accordion").mjAccordion()
-};
-
 var initialize_modules = function() {
   "use strict";
 
