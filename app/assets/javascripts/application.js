@@ -177,7 +177,4 @@ $(function() {
   $(document).on("ajax:complete", initialize_modules);
 });
 
-$(document).on('turbolinks:load', function() {
-  $('.mj_accordion').mjAccordion();
-});
 
