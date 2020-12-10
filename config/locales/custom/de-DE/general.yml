@@ -11,4 +11,4 @@ de:
     tags_cloud:
       subcategories: "Unterkategorien"
   alerts:
-    select_one_category: "Bitte selektieren Sie zunächst eine Kategorie %{model}"
+    select_one_category: "Bitte wählen Sie zunächst eine Kategorie"
