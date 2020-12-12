@@ -627,7 +627,7 @@ de:
         title: Abstimmung
         help: Hilfe zur Abstimmung
       section_footer:
-        title: Hilfe zur Abstimmung
+        title: ""
         description: Bürgerumfragen sind ein partizipatorischer Mechanismus, mit dem Bürger mit Wahlrecht direkte Entscheidungen treffen können
       no_polls: "Keine offenen Abstimmungen."
     show:
