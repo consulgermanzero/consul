@@ -2,6 +2,8 @@ de:
   debates:
     new:
       start_new_in: Starten Sie eine Diskussion in %{category}
+    index:
+      featured_debates: Maßnahmen
   proposals:
     new:
       start_new_in: Erstellen Sie einen Vorschlag in %{category}
