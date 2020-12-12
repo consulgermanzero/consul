@@ -5,9 +5,7 @@ de:
   proposals:
     new:
       start_new_in: Erstellen Sie einen Vorschlag in %{category}
-    proposal:
-      supports_necessary: "%{number} Unterstützungen benötigt"
-      reason_for_supports_necessary: ""
+
   shared:
     tags_cloud:
       subcategories: "Unterkategorien"
