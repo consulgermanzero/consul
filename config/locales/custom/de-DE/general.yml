@@ -5,7 +5,9 @@ de:
   proposals:
     new:
       start_new_in: Erstellen Sie einen Vorschlag in %{category}
-
+    proposal:
+      supports_necessary: "%{count} Unterstützungen benötigt"
+      reason_for_supports_necessary: ""
   shared:
     tags_cloud:
       subcategories: "Unterkategorien"
@@ -13,4 +15,22 @@ de:
     select_one_category: "Bitte wählen Sie zunächst eine Kategorie"
   welcome:
     cards:
-      title: Maßnahmen 
+      title: Maßnahmen
+  layouts:
+    footer:
+      accessibility: Barrierefreiheit
+      conditions: Allgemeine Nutzungsbedingungen
+      consul: CONSUL Anwendung
+      consul_url: https://github.com/consul/consul
+      contact_us: Für technische Unterstützung geben Sie ein
+      copyright: CONSUL, %{year}
+      description: Die Plattform basiert auf %{consul}, einer %{open_source}.
+      open_source: Open-Source Software
+      open_source_url: http://www.gnu.org/licenses/agpl-3.0.html
+      participation_text: Gestalten Sie die Stadt, in der Sie leben möchten.
+      participation_title: Teilnahme
+      privacy: Datenschutzbestimmungen
+      nutzung: Allgemeine Nutzungsbedingungen
+      datenschutz: Datenschutzbedingungen
+      impressum: Impressum
+      netiquette: Netiquette
