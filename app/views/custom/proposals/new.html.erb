@@ -5,7 +5,7 @@
 
     <h1><%= t("proposals.new.start_new_in", category: Tag.find_by(name: params[:tags])&.name) %></h1>
     <div data-alert class="callout primary">
-      <%= link_to help_path(anchor: "proposals"), title: t("shared.target_blank"), target: "_blank" do %>
+      <%= link_to page_path("hilfe"), title: t("shared.target_blank"), target: "_blank" do %>
         <%= t("proposals.new.more_info") %>
       <% end %>
     </div>

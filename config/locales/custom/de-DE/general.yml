@@ -5,6 +5,7 @@ de:
   proposals:
     new:
       start_new_in: Erstellen Sie einen Vorschlag in %{category}
+      help: Wie funktionieren Vorschläge?
     proposal:
       reason_for_supports_necessary: ""
   shared:
