@@ -162,7 +162,7 @@ de:
       user_not_found: Benutzer*in wurde nicht gefunden
       invalid_date_range: "Ungültiger Datenbereich"
   form:
-    accept_terms: Ich stimme der %{policy} und den %{conditions} zu
+    accept_terms: Ich stimme den %{policy} und den %{conditions} zu
     accept_terms_title: Ich stimme den Datenschutzrichtlinien und den Nutzungsbedingungen zu
     conditions: Allgemeine Nutzungsbedingungen
     debate: Diskussion
