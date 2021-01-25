@@ -1,8 +1,13 @@
 en:
   debates:
+    form:
+      tags_categories: "Add custom categories"
+      tags_subcategories: "Add custom subcategories"
     new:
       start_new_in: Start a debate in %{category}
   proposals:
+    form:
+      tag_subcategory_label: "Subcategories"
     new:
       start_new_in: Create new proposal in %{category}
   shared:
@@ -10,4 +15,3 @@ en:
       subcategories: "Subcategories"
   alerts:
     select_one_category: "Please select one category to create a %{model}"
-

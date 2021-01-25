@@ -7,8 +7,7 @@ en:
         notice: Debate updated
     proposals:
       index:
-        tags: Topics
+        tags: Category
     tags:
       index:
         scope: Subcategory
-    

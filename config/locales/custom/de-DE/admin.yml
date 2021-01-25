@@ -7,7 +7,7 @@ de:
         notice: Diskussion aktualisiert
     proposals:
       index:
-        tags: Topics
+        tags: Kategorien
     tags:
       index:
         scope: Unterkategorie

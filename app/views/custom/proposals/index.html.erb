@@ -46,18 +46,25 @@
                                              namespace: "proposals" %>
     <% end %>
   
+    <%tags = []%>
+    <%can_create = true%>
+    <%selected_tags = params[:tags]&.split(",")&.map {|tt| t2 = Tag.find_by(name: tt)}&.compact || []%>
+  
+    <%if Proposal::MANAGE_CATEGORIES & Proposal::TAGS_PREDEFINED > 0%>
+      <%tag_categories = selected_tags&.map {|tt| tt&.kind == 'category' ? tt : nil}&.compact %>
+      <%can_create = tag_categories&.length > 0%>
+      <%tags += tag_categories%>
+    <%end%>
+    <%if Proposal::MANAGE_SUBCATEGORIES & Proposal::TAGS_PREDEFINED > 0%>
+      <%tag_subcategories = selected_tags&.map {|tt| tt&.kind == 'subcategory' ? tt : nil}&.compact %>
+      <%can_create = can_create && tag_subcategories&.length > 0%>
+      <%tags += tag_subcategories%>
+    <%end%>
     <div class="row">
       <div id="proposals" class="proposals-list small-12 medium-9 column">
   
         <%= render "shared/banner" %>
-        
-        <% unless @search_terms || @advanced_search_terms || @tag_filter %>
-          <div id="section_help" class="margin" data-magellan-target="section_help">
-            <p><%= t("proposals.index.section_footer.description") %></p>
-          </div>
-        <% end %>
-
-
+  
         <% if show_featured_proposals? %>
           <div id="featured-proposals" class="row featured-proposals">
             <div class="small-12 column">
@@ -88,16 +95,12 @@
           <%= render "shared/order_links", i18n_namespace: "proposals.index" %>
         <% end %>
   
-        <% if @proposals.any? %>
           <div class="show-for-small-only">
-          <%-tag_categories = params[:tags]&.split(",")&.map {|tt| t2 = Tag.find_by(name: tt) and t2&.kind == 'category' ? t2 : nil}&.compact %>
-          <%-can_create = tag_categories&.length == 1%>
-          <%= link_to t("proposals.index.start_proposal"), new_proposal_path(tags: tag_categories&.first&.name),
+          <%= link_to t("proposals.index.start_proposal"), new_proposal_path(tags: tags.any? ? tags.map{|t| t.name}.join(",") : nil),
             class: "button expanded",
             onclick: can_create ? "return true" : "alert('#{t("alerts.select_one_category", model: t("activerecord.models.proposal.one"))}'); return false;",
             disabled: !can_create %>
           </div>
-        <% end %>
   
         <div id="proposals-list">
           <% if @proposals.any? || current_user.blank? %>
@@ -113,12 +116,20 @@
           <% end %>
           <%= paginate @proposals %>
   
+          <% unless @search_terms || @advanced_search_terms %>
+            <div id="section_help" class="margin" data-magellan-target="section_help">
+              <p class="lead">
+                <strong><%= t("proposals.index.section_footer.title") %></strong>
+              </p>
+              <p><%= t("proposals.index.section_footer.description") %></p>
+            </div>
+          <% end %>
         </div>
       </div>
   
       <div class="small-12 medium-3 column">
         <aside class="margin-bottom">
-          <%= link_to t("proposals.index.start_proposal"), new_proposal_path(tags: tag_categories&.first&.name),
+          <%= link_to t("proposals.index.start_proposal"), new_proposal_path(tags: tags.any? ? tags.map{|t| t.name}.join(",") : nil),
             class: "button expanded",
             onclick: can_create ? "return true" : "alert('#{t("alerts.select_one_category", model: t("activerecord.models.proposal.one"))}'); return false;",
             disabled: !can_create %>
@@ -132,11 +143,11 @@
   
           <% if params[:retired].blank? %>
             <%= render "shared/categories", model: "proposal" %>
-            <!-- <%= render "shared/tag_cloud", taggable: "proposal" %> -->
-            <!-- <%= render "geozones" %> -->
+            <%= render "shared/tag_cloud", taggable: "proposal" %>
+            <%= render "geozones" %>
           <% end %>
-          <!-- <%= render "retired" %> -->
-          <!-- <%= render "proposals_lists" %> -->
+          <%= render "retired" %>
+          <%= render "proposals_lists" %>
         </aside>
       </div>
   
