@@ -265,3 +265,11 @@
     color: #0e76a8;
   }
 }
+
+@include breakpoint(medium) {	
+
+  .button.button-telegram,	
+  .ssb-telegram {	
+    display: inline-block !important;	
+  }	
+}
