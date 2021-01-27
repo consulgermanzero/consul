@@ -14,3 +14,22 @@ $body-font-family: 'DM Sans Regular', 'DM Sans Bold', 'PT Serif Web Regular', sa
 $header-font-family: 'DM Sans Regular', 'DM Sans Bold', 'PT Serif Web Regular', sans-serif !important;
 $base-font-size:      15px;
 
+
+$header-styles: (
+  small: (
+    "h1": ("font-size": 24),
+    "h2": ("font-size": 24),
+    "h3": ("font-size": 20),
+    "h4": ("font-size": 18),
+    "h5": ("font-size": 16),
+    "h6": ("font-size": 14),
+  ),
+  medium: (
+    "h1": ("font-size": 34),
+    "h2": ("font-size": 34),
+    "h3": ("font-size": 24),
+    "h4": ("font-size": 19),
+    "h5": ("font-size": 16),
+    "h6": ("font-size": 13),
+  ),
+);

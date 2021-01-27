@@ -1,0 +1,7 @@
+de:
+  mailers:
+    comment:
+      hi: Hallo
+      new_comment_by: Es gibt einen neuen Kommentar von <strong>%{commenter}</strong>
+      subject: Jemand hat Ihren Beitrag kommentiert.
+      title: Neuer Kommentar
