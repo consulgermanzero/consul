@@ -79,3 +79,15 @@ a.navdropbtn {
 .navdropdown:hover .navdropdown-content {display: block;}
 .navdropdown:hover .navdropbtn {background-color: white;}
 
+.welcomepage {
+  color: $brand;
+}
+
+.welcometext {
+  font-size: x-small;
+}
+
+.welcomebottom {
+  font-style: italic;
+  color: $brand;
+}
