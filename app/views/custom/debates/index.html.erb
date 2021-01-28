@@ -87,8 +87,9 @@
   
       <div class="small-12 medium-3 column">
         <aside class="margin-bottom">
-  
-          <%= link_to t("debates.index.start_debate"), new_debate_path(tags: tag_categories&.first&.name), class: "button expanded", onclick: can_create ? "return true" : "alert('#{t("alerts.select_one_category", model: t("activerecord.models.debate.one"))}'); return false;" , disabled: !can_create %>
+          <% if show_admin_menu?(current_user) %>
+            <%= link_to t("debates.index.start_debate"), new_debate_path(tags: tag_categories&.first&.name), class: "button expanded", onclick: can_create ? "return true" : "alert('#{t("alerts.select_one_category", model: t("activerecord.models.debate.one"))}'); return false;" , disabled: !can_create %>
+          <% end %>
           <%= render "shared/categories", model: "debate" %>
           <!--%= render "shared/tag_cloud", taggable: "debate" %-->
           </aside>
