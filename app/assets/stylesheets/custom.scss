@@ -6,6 +6,7 @@
 
 @import 'custom_fonts';
 @import "custom/mjAccordion";
+@import "custom/_welcome";
 
 .topless {
     @include breakpoint(small) {

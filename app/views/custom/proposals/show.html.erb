@@ -53,8 +53,6 @@
       <% unless preview %>
         <aside class="small-12 medium-3 column">
 
-          <%= render "communities/access_button", community: @proposal.community %>
-
           <% if can?(:dashboard, @proposal) %>
             <div class="sidebar-divider"></div>
             <h2><%= t("proposals.show.author") %></h2>
@@ -67,6 +65,8 @@
               <% end %>
             </div>
           <% end %>
+
+          <%= render "communities/access_button", community: @proposal.community %>
 
           <%= render "proposals/support_status", proposal: @proposal %>
 

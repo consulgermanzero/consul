@@ -12,8 +12,8 @@ de:
     tags_cloud:
       subcategories: "Unterkategorien"
     follow: "Folgen"
-    following: "Folgen"
-    follow_entity: "Informiert mich über Änderungen"
+    following: "Informiert mich über Änderungen"
+    follow_entity: "Informiert mich nicht mehr über Änderungen"
   alerts:
     select_one_category: "Bitte wählen Sie zunächst eine Kategorie"
   welcome:

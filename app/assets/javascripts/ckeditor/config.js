@@ -103,6 +103,7 @@ CKEDITOR.editorConfig = function( config )
 
   config.toolbar_admin = config.toolbar_mini.concat([
     { name: "insert", items: [ "Image", "Table" ] },
+    { name: "styles", items: [ "Styles", "Format", "Font", "FontSize" ] },
     { name: 'insert', items: [ 'MJAccordion', 'Source' ] },
     { name: "links", items: [ "Link", "Unlink", "Anchor" ] },
     { name: "insert", items: [ "Image", "Flash", "Table", "HorizontalRule", "SpecialChar" ] },
