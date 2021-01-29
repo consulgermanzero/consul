@@ -95,23 +95,16 @@ CKEDITOR.editorConfig = function( config )
   ];
 
   config.toolbar_mini = [
-    { name: "paragraph", groups: [ "list" ], items: [ "NumberedList", "BulletedList" ] },
-    { name: "links", items: [ "Link", "Unlink" ] },
-    { name: "styles", items: [ "Format" ] },
-    { name: "basicstyles", groups: [ "basicstyles", "cleanup" ], items: [ "Bold", "Italic", "Underline", "Strike" ] }
+    { name: "styles", items: [ "Styles", "Format", "Font", "FontSize" ] },
+    { name: "colors", items: [ "TextColor", "BGColor" ] },
+    { name: "basicstyles", groups: [ "basicstyles", "cleanup" ], items: [ "Bold", "Italic", "Underline", "Strike", "Subscript", "Superscript", "-", "RemoveFormat" ] },
+    { name: "paragraph", groups: [ "list", "indent", "blocks", "align", "bidi" ], items: [ "NumberedList", "BulletedList", "-", "Outdent", "Indent", "-", "Blockquote", "CreateDiv", "-", "JustifyLeft", "JustifyCenter", "JustifyRight", "JustifyBlock" ] },
+    { name: "insert", items: [ "Image", "Table", "MJAccordion", "Source", "HorizontalRule", "SpecialChar" ] },
+    { name: "links", items: [ "Link", "Unlink", "Anchor" ] },
   ];
 
   config.toolbar_admin = config.toolbar_mini.concat([
-    { name: "insert", items: [ "Image", "Table" ] },
-    { name: "styles", items: [ "Styles", "Format", "Font", "FontSize" ] },
-    { name: 'insert', items: [ 'MJAccordion', 'Source' ] },
-    { name: "links", items: [ "Link", "Unlink", "Anchor" ] },
-    { name: "insert", items: [ "Image", "Flash", "Table", "HorizontalRule", "SpecialChar" ] },
-    { name: "paragraph", groups: [ "list", "indent", "blocks", "align", "bidi" ], items: [ "NumberedList", "BulletedList", "-", "Outdent", "Indent", "-", "Blockquote", "CreateDiv", "-", "JustifyLeft", "JustifyCenter", "JustifyRight", "JustifyBlock" ] },
-    "/",
-    { name: "styles", items: [ "Styles", "Format", "Font", "FontSize" ] },
-    { name: "colors", items: [ "TextColor", "BGColor" ] },
-    { name: "basicstyles", groups: [ "basicstyles", "cleanup" ], items: [ "Bold", "Italic", "Underline", "Strike", "Subscript", "Superscript", "-", "RemoveFormat" ] }
+    { name: "insert", items: [ "Image", "Table", "MJAccordion", "Source", "HorizontalRule", "SpecialChar" ] },
   ]);
 
   config.toolbar = "mini";
