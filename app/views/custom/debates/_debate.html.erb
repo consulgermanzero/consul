@@ -1,7 +1,16 @@
-<% cache [locale_and_user_status, debate, @debate_votes[debate.id], params[:tags]] do %>
+
+<% cache [locale_and_user_status, debate, @debate_votes[debate.id]] do %>
   <div id="<%= dom_id(debate) %>" class="debate clear" data-type="debate">
     <div class="panel">
-      <div class="row">
+     <% if debate.image.present? %>
+       <div class="row">
+         <div class="small-12 medium-3 large-2 column text-center">
+           <%= image_tag debate.image_url(:thumb),
+             alt: debate.image.title.unicode_normalize %>
+       </div>
+     <% else %>
+       <div class="row">
+       <% end %>
 
         <div class="small-12 medium-9 column">
           <div class="debate-content">

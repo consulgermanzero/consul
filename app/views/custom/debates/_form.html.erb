@@ -23,18 +23,28 @@
       </div>
     <% end %>
 
+    <% if feature?(:allow_images) %>
+      <div class="images small-12 column">
+        <%= render "images/nested_image", imageable: @debate, f: f %>
+      </div>
+    <% end %>
+
     <%= f.invisible_captcha :subtitle %>
 
     <div class="small-12 column">
-      <%=f.hidden_field :tag_list, value: Tag.find_by(name: params[:tags])&.name%>
+      <%= f.text_field :tag_list, value: @debate.tag_list.to_s,
+                        hint: t("debates.form.tags_instructions"),
+                        placeholder: t("debates.form.tags_placeholder"),
+                        data: { js_url: suggest_tags_path },
+                        class: "tag-autocomplete" %>
     </div>
     <div class="small-12 column">
       <% if @debate.new_record? %>
         <%= f.check_box :terms_of_service,
           title: t("form.accept_terms_title"),
           label: t("form.accept_terms",
-                   policy: link_to(t("form.policy"), "/datenschutz", target: "blank"),
-                   conditions: link_to(t("form.conditions"), "/nutzung", target: "blank")
+                   policy: link_to(t("form.policy"), "/privacy", target: "blank"),
+                   conditions: link_to(t("form.conditions"), "/conditions", target: "blank")
                   ) %>
       <% end %>
     </div>
