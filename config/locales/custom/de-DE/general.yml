@@ -37,3 +37,12 @@ de:
       datenschutz: Datenschutzbedingungen
       impressum: Impressum
       netiquette: Netiquette
+  topics_predefined:
+    topic1: "Erstes Thema"
+    description1: "Beschreibungstext"
+    topic2: "Zweites Thema"
+    description2: "Beschreibungstext"
+    topic3: "Drittes Thema"
+    description3: "Beschreibungstext"
+    topic4: "Viertes Thema"
+    description4: "Beschreibungstext"

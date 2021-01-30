@@ -10,4 +10,12 @@ en:
       subcategories: "Subcategories"
   alerts:
     select_one_category: "Please select one category to create a %{model}"
-
+  topics_predefined:
+    topic1: "The first topic"
+    description1: "here is the description"
+    topic2: "The second topic"
+    description2: "here is the description"
+    topic3: "The third topic"
+    description3: "here is the description"
+    topic4: "The fourth topic"
+    description4: "here is the description"
