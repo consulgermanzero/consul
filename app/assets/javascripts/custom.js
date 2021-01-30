@@ -1,5 +1,6 @@
 //= require custom/mjAccordion.js
 //= require turbolinks
+//= require custom/textarea_autoexpand
 
 
 var mj;
