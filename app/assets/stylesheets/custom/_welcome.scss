@@ -9,10 +9,11 @@
 
   .headerinfo {
     text-align: justify;
-    max-width: 75%;
   }
 
   .jumbo {
+
+    background: white;
 
     @media only screen and (max-width: 414px) {
       background-position: bottom;
@@ -42,11 +43,6 @@
       .button {
         background: $brand;
         color: black;
-        max-width: 100%;
-      }
-
-      .headerinfo {
-        text-align: justify;
         max-width: 100%;
       }
     }
@@ -82,11 +78,6 @@
         color: black;
         max-width: 100%;
       }
-
-      .headerinfo {
-        text-align: justify;
-        max-width: 100%;
-      }
     }
 
     @media only screen and (min-width: 550px) and (max-width: 640px) {
@@ -115,11 +106,6 @@
         color: #fff;
         max-width: 100%;
       }
-
-      .headerinfo {
-        text-align: justify;
-        max-width: 100%;
-      }
     }
 
     @media only screen and (min-width: 640px) and (max-width: 768px) {
@@ -129,7 +115,7 @@
       padding-bottom: rem-calc(60);
 
       h1 {
-        color: $black;
+        color: $white;
         font-size: rem-calc(30);
         font-weight: 700;
         line-height: rem-calc(30);
@@ -145,11 +131,6 @@
       .button {
         background: $brand;
         color: #fff;
-        max-width: 100%;
-      }
-
-      .headerinfo {
-        text-align: justify;
         max-width: 100%;
       }
     }
