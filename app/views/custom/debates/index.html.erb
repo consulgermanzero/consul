@@ -66,7 +66,9 @@
         <div class="show-for-small-only">
           <%-tag_categories = params[:tags]&.split(",")&.map {|tt| t2 = Tag.find_by(name: tt) and t2&.kind == 'category' ? t2 : nil}&.compact %>
           <%-can_create = tag_categories&.length == 1%>
-          <%= link_to t("debates.index.start_debate"), new_debate_path(tags: tag_categories&.first&.name), class: "button expanded", onclick: can_create ? "return true" : "alert('#{t("alerts.select_one_category", model: t("activerecord.models.debate.one"))}'); return false;" , disabled: !can_create %>
+          <% if show_admin_menu?(current_user) %>
+            <%= link_to t("debates.index.start_debate"), new_debate_path(tags: tag_categories&.first&.name), class: "button expanded", onclick: can_create ? "return true" : "alert('#{t("alerts.select_one_category", model: t("activerecord.models.debate.one"))}'); return false;" , disabled: !can_create %>
+          <% end %>
         </div>
   
         <% if @debates.any? || current_user.blank? %>
