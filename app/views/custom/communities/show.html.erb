@@ -14,14 +14,12 @@
   </div>
 
   <div class="row">
-    <% if @community.topics.count < Community::MAX_TOPICS%>
-      <aside class="small-12 column show-for-small-only">
-        <div class="sidebar-divider"></div>
-        <h2><%= t("community.show.sidebar.participate") %></h2>
-        <%= link_to t("community.show.sidebar.new_topic"),
-          create_topic_link(@community), class: "button expanded" %>
+    <aside class="small-12 column show-for-small-only">
+      <div class="sidebar-divider"></div>
+      <h2><%= t("community.show.sidebar.participate") %></h2>
+      <%= link_to t("community.show.sidebar.new_topic"),
+        create_topic_link(@community), class: "button expanded" %>
     </aside>
-  <%end%>
 
     <div class="small-12 medium-9 column">
       <div id="topics" class="topics-list">
@@ -31,12 +29,10 @@
     </div>
 
     <aside class="small-12 medium-3 column hide-for-small-only">
-      <% if @community.topics.count < Community::MAX_TOPICS%>
         <div class="sidebar-divider"></div>
         <h2><%= t("community.show.sidebar.participate") %></h2>
         <%= link_to t("community.show.sidebar.new_topic"),
           create_topic_link(@community), class: "button expanded" %>
-      <%end%>
       <% if @community.proposal&.polls&.current&.any? %>
         <div class="sidebar-divider"></div>
         <h2><%= t("communities.show.surveys") %></h2>
