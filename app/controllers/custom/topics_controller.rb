@@ -11,9 +11,6 @@ class TopicsController < ApplicationController
 
   def new
     @topic = Topic.new
-    if @community.topics.count >= Community::MAX_TOPICS
-      redirect_to @community
-    end
   end
 
   def create
