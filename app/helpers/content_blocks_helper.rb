@@ -1,3 +1,4 @@
+
 module ContentBlocksHelper
   def valid_blocks
     options = SiteCustomization::ContentBlock::VALID_BLOCKS.map do |key|
@@ -7,5 +8,9 @@ module ContentBlocksHelper
       options.push([heading.name, "hcb_#{heading.id}"])
     end
     options
+  end
+
+  def render_custom_block(key)
+    raw SiteCustomization::ContentBlock.custom_block_for(key, I18n.locale)
   end
 end

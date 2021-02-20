@@ -11,4 +11,8 @@ en:
     tags:
       index:
         scope: Subcategory
+    site_customization:
+      content_blocks:
+        content_block:
+          key: Key
     

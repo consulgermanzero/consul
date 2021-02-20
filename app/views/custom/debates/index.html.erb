@@ -43,9 +43,7 @@
         <%= render "shared/banner" %>
         <% unless @search_terms || @advanced_search_terms %>
           <div id="section_help" class="margin" data-magellan-target="section_help">
-            <p>Mit einem Anteil von mehr als zwei Dritteln macht die Tierhaltung den Löwenanteil des Treibhausgasausstoßes in der Landwirtschaft aus. Deswegen spielen Maßnahmen, die dabei helfen, dort die Emissionen zu verringern, in unserem 1,5-Grad-Gesetzespaket eine zentrale Rolle. Hier sind die die größten Einsparungen möglich – die gleichzeitig der Artenvielfalt, und dem Tierwohl zugutekommen.</p>
-            <h5>Wir wollen mit euch diskutieren: Welche Chancen bieten die hier vorgestellten Maßnahmen für den Wandel zu einer klimaneutralen Gesellschaft? Welche Herausforderungen müssen berücksichtigt werden? </h5>
-            <p>Eine Übersicht über alle Maßnahmen zum Sektor „Landwirtschaft, Landnutzung und Ernährung“ aus dem 1,5-Grad-Gesetzespaket von GermanZero findest Du <a href="https://beteiligung.germanzero.org/massnahmen_landwirtschaft">hier</a>.
+            <%=render_custom_block 'debates_welcome' %>
           </div>
         <% end %>
   
