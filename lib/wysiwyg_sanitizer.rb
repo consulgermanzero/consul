@@ -1,6 +1,6 @@
 class WYSIWYGSanitizer
   def allowed_tags
-    %w[p ul ol li strong em u s a h2 h3 h4 div span img]
+    %w[p ul ol li strong em u s a h2 h3 h4 div span p var sub em strong u s img]
   end
 
   def allowed_attributes
