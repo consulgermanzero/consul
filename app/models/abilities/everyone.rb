@@ -4,9 +4,13 @@ module Abilities
 
     def initialize(user)
       can [:read, :map], Debate
-      can [:read, :map, :summary, :share], Proposal
+      can [:read, :map, :summary, :share, :json_data], Proposal
       can :read, Comment
       can :read, Poll
+      if user&.administrator? || user&.moderator?
+        can :results, Poll
+        can :stats, Poll
+      end
       can :results, Poll, id: Poll.expired.results_enabled.not_budget.ids
       can :stats, Poll, id: Poll.expired.stats_enabled.not_budget.ids
       can :read, Poll::Question
@@ -21,6 +25,8 @@ module Abilities
       can :new, DirectMessage
       can [:read, :debate, :draft_publication, :allegations, :result_publication,
            :proposals, :milestones], Legislation::Process, published: true
+      can :summary, Legislation::Process,
+          id: Legislation::Process.past.published.where(result_publication_enabled: true).ids
       can [:read, :changes, :go_to_version], Legislation::DraftVersion
       can [:read], Legislation::Question
       can [:read, :map, :share], Legislation::Proposal

@@ -4,9 +4,7 @@
 // * Spanish: https://github.com/consul/consul/blob/master/CUSTOMIZE_ES.md#css
 //
 
-@import 'custom_fonts';
-@import "custom/mjAccordion";
-@import "custom/_welcome";
+@import "custom/*";
 
 .topless {
     @include breakpoint(small) {
@@ -95,4 +93,8 @@ a.navdropbtn {
 
 textarea{
   max-height: 50vh;
+}
+
+img {
+  height: auto !important;
 }
