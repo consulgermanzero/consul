@@ -98,3 +98,16 @@ textarea{
 img {
   height: auto !important;
 }
+
+.comment-children .comment-body {
+  background: AliceBlue;
+}
+
+.comment-children {
+  border-left: 2px solid lightgray;
+  padding-left: 2rem;
+}
+
+li.comment-body .is-admin p {
+  background: #F7EED0;
+}
