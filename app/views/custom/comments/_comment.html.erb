@@ -104,18 +104,22 @@
 
           <% if user_signed_in? && !comments_closed_for_commentable?(comment.commentable) && !require_verified_resident_for_commentable?(comment.commentable, current_user) %>
             <span class="divider">&nbsp;|&nbsp;</span>
-            <%= link_to(comment_link_text(comment), "",
-                        class: "js-add-comment-link", data: { "id": dom_id(comment) }) %>
+            <% unless @commentable.tags.category.pluck(:name).include?("Landwirtschaft") %>
+              <%= link_to(comment_link_text(comment), "",
+                          class: "js-add-comment-link", data: { "id": dom_id(comment) }) %>
+            <% end %>
 
             <% if allow_actions %>
               <%= render "comments/actions", { comment: comment } %>
             <% end %>
 
-            <% if allow_comments %>
-              <%= render "comments/reply_form", { commentable: comment.commentable,
-                                           parent_id: comment.id,
-                                           toggeable: true,
-                                           valuation: valuation } %>
+            <% unless @commentable.tags.category.pluck(:name).include?("Landwirtschaft") %>
+              <% if allow_comments %>
+                <%= render "comments/reply_form", { commentable: comment.commentable,
+                                            parent_id: comment.id,
+                                            toggeable: true,
+                                            valuation: valuation } %>
+              <% end %>
             <% end %>
           <% end %>
         </div>

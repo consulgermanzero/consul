@@ -49,6 +49,14 @@
       <% end %>
     </div>
 
+    <div class="small-12 column">
+      <% if params[:tags] %>                                    
+        <%=f.hidden_field :tag_list, value: Tag.find_by(name: params[:tags])&.name%>
+      <% else %>
+        <%=f.hidden_field :tag_list, value: @debate.tag_list.join(",") %>
+      <% end %>
+    </div>
+
     <div class="actions small-12 column">
       <%= f.submit(class: "button", value: t("debates.#{action_name}.form.submit_button")) %>
     </div>

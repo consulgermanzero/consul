@@ -87,8 +87,7 @@
         <% unless params[:selected].present? %>
           <%= render "shared/order_links", i18n_namespace: "proposals.index" %>
         <% end %>
-  
-        <% if @proposals.any? %>
+        
           <div class="show-for-small-only">
           <%-tag_categories = params[:tags]&.split(",")&.map {|tt| t2 = Tag.find_by(name: tt) and t2&.kind == 'category' ? t2 : nil}&.compact %>
           <%-can_create = tag_categories&.length == 1%>
@@ -97,7 +96,6 @@
             onclick: can_create ? "return true" : "alert('#{t("alerts.select_one_category", model: t("activerecord.models.proposal.one"))}'); return false;",
             disabled: !can_create %>
           </div>
-        <% end %>
   
         <div id="proposals-list">
           <% if @proposals.any? || current_user.blank? %>

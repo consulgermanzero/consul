@@ -62,7 +62,11 @@
     <% end %>
 
     <div class="small-12 column">
-      <%=f.hidden_field :tag_list, value: Tag.find_by(name: params[:tags])&.name%>
+      <% if params[:tags] %>                                    
+        <%=f.hidden_field :tag_list, value: Tag.find_by(name: params[:tags])&.name%>
+      <% else %>
+        <%=f.hidden_field :tag_list, value: @proposal.tag_list.join(",") %>
+      <% end %>
     </div>
 
     <% if current_user.unverified? %>
