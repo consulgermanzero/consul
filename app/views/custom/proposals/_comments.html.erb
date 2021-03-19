@@ -5,9 +5,9 @@
 
       <% if @proposal.tags.category.pluck(:name).include?("Landwirtschaft") %>
         <div>
-          <p style="color:red">"Für den Sektor <strong>"Landwirtschaft, Landnutzung und Ernährung"</strong> haben wir die Kommentierung am 15. März beendet. 
+          <p style="color:red">Für den Sektor <strong>"Landwirtschaft, Landnutzung und Ernährung"</strong> haben wir die Kommentierung am 15. März beendet. 
           Die Ergebnisse werden jetzt für die weitere 
-          <br>Gesetzesarbeit ausgewertet."</p>
+          <br>Gesetzesarbeit ausgewertet.</p>
         </div>
       <% else %>
         <% if user_signed_in? %>
