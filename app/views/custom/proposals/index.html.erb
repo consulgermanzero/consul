@@ -92,7 +92,7 @@
           <%-tag_categories = params[:tags]&.split(",")&.map {|tt| t2 = Tag.find_by(name: tt) and t2&.kind == 'category' ? t2 : nil}&.compact %>
           <% if tag_categories&.pluck(:name)&.include?("Landwirtschaft") %>
             <% can_create = false %>
-            <% alertmessage = "Für den Sektor "Landwirtschaft, Landnutzung und Ernährung" haben wir die Kommentierung am 15. März beendet. Die Ergebnisse werden jetzt für die weitere Gesetzesarbeit ausgewertet." %>
+            <% alertmessage = "Für den Sektor Landwirtschaft, Landnutzung und Ernährung haben wir die Kommentierung am 15. März beendet. Die Ergebnisse werden jetzt für die weitere Gesetzesarbeit ausgewertet." %>
           <% else %>
             <%-can_create = tag_categories&.length == 1%>
             <% alertmessage = t("alerts.select_one_category", model: t("activerecord.models.proposal.one")) %>
