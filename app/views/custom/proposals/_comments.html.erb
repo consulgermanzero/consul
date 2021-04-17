@@ -3,7 +3,14 @@
     <div id="comments" class="small-12 column">
       <%= render "shared/wide_order_selector", i18n_namespace: "comments" %>
 
-      <% if @proposal.tags.category.pluck(:name).include?("Landwirtschaft") %>
+      <% tag_names = @proposal.tags.category.pluck(:name) %>
+      <% if tag_names.include?("Energie") %>
+        <div>
+          <p style="color:red">Für den Sektor <strong>"Energie"</strong> haben wir die Kommentierung am 19. April beendet.
+          Die Ergebnisse werden jetzt für die weitere
+          <br>Gesetzesarbeit ausgewertet.</p>
+        </div>
+      <% elsif tag_names.include?("Landwirtschaft") %>
         <div>
           <p style="color:red">Für den Sektor <strong>"Landwirtschaft, Landnutzung und Ernährung"</strong> haben wir die Kommentierung am 15. März beendet. 
           Die Ergebnisse werden jetzt für die weitere 
