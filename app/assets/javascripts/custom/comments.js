@@ -73,6 +73,13 @@
           App.Comments.toggle_comments( this );
           $(this).on("click", function() {
             App.Comments.toggle_comments( this );
+            // expand reply children for first level
+            if ($(this).parents('.comment').length == 1) {
+              var firstReplies = $(this).closest('.comment').find('> li > ul.comment-children > li > ul > li > .reply > .js-toggle-children');
+              firstReplies.each(function() {
+                App.Comments.toggle_comments( this );
+              });
+            }
             return false;
           }).data("initialized", "yes");
         }
