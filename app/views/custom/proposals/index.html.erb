@@ -90,10 +90,14 @@
         
           <div class="show-for-small-only">
           <%-tag_categories = params[:tags]&.split(",")&.map {|tt| t2 = Tag.find_by(name: tt) and t2&.kind == 'category' ? t2 : nil}&.compact %>
-          <% if tag_categories&.pluck(:name)&.include?("Energie") %>
+          <%-tag_category_names = tag_categories&.pluck(:name) %>
+          <% if tag_category_names&.include?("Verkehr") %>
+            <% can_create = false %>
+            <% alertmessage = "Für den Sektor Verkehr haben wir die Kommentierung am 3. Mai beendet. Die Ergebnisse werden jetzt für die weitere Gesetzesarbeit ausgewertet." %>
+          <% elsif tag_category_names&.include?("Energie") %>
             <% can_create = false %>
             <% alertmessage = "Für den Sektor Energie haben wir die Kommentierung am 22. April beendet. Die Ergebnisse werden jetzt für die weitere Gesetzesarbeit ausgewertet." %>
-          <% elsif tag_categories&.pluck(:name)&.include?("Landwirtschaft") %>
+          <% elsif tag_category_names&.include?("Landwirtschaft") %>
             <% can_create = false %>
             <% alertmessage = "Für den Sektor Landwirtschaft, Landnutzung und Ernährung haben wir die Kommentierung am 15. März beendet. Die Ergebnisse werden jetzt für die weitere Gesetzesarbeit ausgewertet." %>
           <% else %>

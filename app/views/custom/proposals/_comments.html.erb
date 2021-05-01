@@ -4,7 +4,12 @@
       <%= render "shared/wide_order_selector", i18n_namespace: "comments" %>
 
       <% tag_names = @proposal.tags.category.pluck(:name) %>
-      <% if tag_names.include?("Energie") %>
+      <% if tag_names.include?("Verkehr") %>
+        <div>
+          <p style="color:red">Für den Sektor <strong>"Verkehr"</strong> haben wir die Kommentierung am 3. Mai beendet.
+          Die Ergebnisse werden jetzt für die weitere Gesetzesarbeit ausgewertet.</p>
+        </div>
+      <% elsif tag_names.include?("Energie") %>
         <div>
           <p style="color:red">Für den Sektor <strong>"Energie"</strong> haben wir die Kommentierung am 22. April beendet.
           Die Ergebnisse werden jetzt für die weitere Gesetzesarbeit ausgewertet.</p>
