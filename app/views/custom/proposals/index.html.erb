@@ -100,6 +100,9 @@
           <% elsif tag_category_names&.include?("Landwirtschaft") %>
             <% can_create = false %>
             <% alertmessage = "Für den Sektor Landwirtschaft, Landnutzung und Ernährung haben wir die Kommentierung beendet. Die Ergebnisse der Auswertung sind hier zu finden: https://beteiligung.germanzero.org/Ergebnisse_LW" %>
+          <% elsif tag_category_names&.include?("Gebäude & Wärme") || tag_category_names&.include?("Industrie") %>
+            <% can_create = false %>
+            <% alertmessage = "Für die Sektoren Gebäude & Wärme sowie Industrie haben wir die Kommentierung am 18. Mai beendet. Die Ergebnisse werden jetzt für die weitere Gesetzesarbeit ausgewertet. %>
           <% else %>
             <%-can_create = tag_categories&.length == 1%>
             <% alertmessage = t("alerts.select_one_category", model: t("activerecord.models.proposal.one")) %>

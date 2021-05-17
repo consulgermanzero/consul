@@ -24,6 +24,11 @@
           <p style="color:red">Für den Sektor <strong>"Landwirtschaft, Landnutzung und Ernährung"</strong> haben wir die Kommentierung beendet.
           <br>Die Ergebnisse der Auswertung sind hier zu finden:<br><a href="https://beteiligung.germanzero.org/Ergebnisse_LW">https://beteiligung.germanzero.org/Ergebnisse_LW</a></p>
         </div>
+      <% elsif tag_names.include?("Industrie") || tag_names.include?("Gebäude & Wärme") %>
+        <div>
+          <p style="color:red">Für die Sektoren <strong>"Gebäude & Wärme"</strong> und <strong>"Industrie"</strong> haben wir die Kommentierung am 18. Mai beendet.
+          Die Ergebnisse werden jetzt für die weitere Gesetzesarbeit ausgewertet.</p>
+        </div>
       <% else %>
         <% if user_signed_in? %>
           <%= render "comments/form", { commentable: @debate, parent_id: nil, toggeable: false } %>
